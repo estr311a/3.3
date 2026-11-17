@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:katalog"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+             x:Class="katalog.ItemsListView"
+             x:DataType="local:CatalogItem">
+    <Grid RowDefinitions="Auto,*,Auto" Margin="20">
+        <!-- Nagłówek -->
+        <StackPanel Grid.Row="0" Spacing="5" Margin="0,0,0,15">
+            <TextBlock Text="Katalog pozycji" FontSize="22" FontWeight="Bold" />
+            <TextBlock Text="Wybierz pozycję z listy, aby zobaczyć szczegóły:" Foreground="Gray" />
+        </StackPanel>
+
+        <!-- Lista pozycji -->
+        <Border Grid.Row="1" BorderBrush="#DDDDDD" BorderThickness="1" CornerRadius="6" Background="#FAFAFA" Padding="5">
+            <ListBox Name="ItemsListBox" SelectionMode="Single">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="local:CatalogItem">
+                        <Grid ColumnDefinitions="*,Auto,Auto" Margin="5">
+                            <TextBlock Grid.Column="0" Text="{Binding Title}" FontWeight="SemiBold" FontSize="15" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Text="{Binding Year}" Foreground="#666666" Margin="15,0" VerticalAlignment="Center" />
+                            <Border Grid.Column="2" Background="#007ACC" CornerRadius="4" Padding="8,2">
+                                <TextBlock Text="{Binding Rating, StringFormat='Ocena: {0}/10'}" Foreground="White" FontWeight="Bold" FontSize="12" />
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+
+        <!-- Pasek akcji -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="10" Margin="0,15,0,0" HorizontalAlignment="Right">
+            <Button Content="Odśwież" Click="OnRefreshClick" Padding="15,8" />
+            <Button Content="Dodaj nową pozycję" Click="OnAddNewClick" Background="#28A745" Foreground="White" Padding="15,8" />
+            <Button Content="Pokaż szczegóły" Click="OnShowDetailsClick" Background="#007ACC" Foreground="White" Padding="15,8" />
+        </StackPanel>
+    </Grid>
+</UserControl>
