@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+             x:Class="katalog.ItemDetailsView">
+    <Grid RowDefinitions="Auto,*,Auto" Margin="20">
+        <!-- Nagłówek -->
+        <StackPanel Grid.Row="0" Spacing="5" Margin="0,0,0,20">
+            <TextBlock Text="Szczegóły pozycji" FontSize="22" FontWeight="Bold" />
+            <TextBlock Text="Informacje o wybranym elemencie z katalogu" Foreground="Gray" />
+        </StackPanel>
+
+        <!-- Karta szczegółów -->
+        <Border Grid.Row="1" Background="#F8F9FA" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="8" Padding="25" VerticalAlignment="Top">
+            <StackPanel Spacing="16">
+                <!-- Tytuł -->
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Tytuł:" FontWeight="Bold" Foreground="#555555" FontSize="13" />
+                    <TextBlock Name="TitleTextBlock" FontSize="20" FontWeight="SemiBold" Text="(Brak wyboru)" />
+                </StackPanel>
+
+                <!-- Rok wydania -->
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Rok wydania / produkcji:" FontWeight="Bold" Foreground="#555555" FontSize="13" />
+                    <TextBlock Name="YearTextBlock" FontSize="16" Text="-" />
+                </StackPanel>
+
+                <!-- Ocena -->
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Ocena:" FontWeight="Bold" Foreground="#555555" FontSize="13" />
+                    <Border Background="#007ACC" HorizontalAlignment="Left" CornerRadius="4" Padding="12,6">
+                        <TextBlock Name="RatingTextBlock" Foreground="White" FontWeight="Bold" FontSize="15" Text="- / 10" />
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Pasek dolny -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="10" Margin="0,20,0,0">
+            <Button Content="Powrót do listy" Click="OnBackClick" Background="#6C757D" Foreground="White" Padding="20,10" />
+        </StackPanel>
+    </Grid>
+</UserControl>
