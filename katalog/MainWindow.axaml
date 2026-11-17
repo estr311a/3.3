@@ -2,8 +2,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="550"
+        Width="750" Height="550"
+        WindowStartupLocation="CenterScreen"
         x:Class="katalog.MainWindow"
-        Title="katalog">
-    Welcome to Avalonia!
+        Title="Katalog pozycji">
+    <Grid RowDefinitions="Auto,*">
+        <!-- Pasek nawigacji górnej -->
+        <Border Grid.Row="0" Background="#F1F3F5" BorderBrush="#E9ECEF" BorderThickness="0,0,0,1" Padding="15,10">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Button Content="Lista pozycji" Click="OnNavListClick" Background="#495057" Foreground="White" Padding="12,6" />
+                <Button Content="Szczegóły" Click="OnNavDetailsClick" Background="#6C757D" Foreground="White" Padding="12,6" />
+                <Button Content="Dodaj nową pozycję" Click="OnNavAddClick" Background="#28A745" Foreground="White" Padding="12,6" />
+            </StackPanel>
+        </Border>
+
+        <!-- Główny kontener ekranów -->
+        <ContentControl Grid.Row="1" Name="MainContent" />
+    </Grid>
 </Window>
