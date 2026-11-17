@@ -10,11 +10,18 @@
     <Grid RowDefinitions="Auto,*">
         <!-- Pasek nawigacji górnej -->
         <Border Grid.Row="0" Background="#F1F3F5" BorderBrush="#E9ECEF" BorderThickness="0,0,0,1" Padding="15,10">
-            <StackPanel Orientation="Horizontal" Spacing="10">
-                <Button Content="Lista pozycji" Click="OnNavListClick" Background="#495057" Foreground="White" Padding="12,6" />
-                <Button Content="Szczegóły" Click="OnNavDetailsClick" Background="#6C757D" Foreground="White" Padding="12,6" />
-                <Button Content="Dodaj nową pozycję" Click="OnNavAddClick" Background="#28A745" Foreground="White" Padding="12,6" />
-            </StackPanel>
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10">
+                    <Button Content="Lista pozycji" Click="OnNavListClick" Background="#495057" Foreground="White" Padding="12,6" />
+                    <Button Content="Szczegóły" Click="OnNavDetailsClick" Background="#6C757D" Foreground="White" Padding="12,6" />
+                    <Button Content="Dodaj nową pozycję" Click="OnNavAddClick" Background="#28A745" Foreground="White" Padding="12,6" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                    <Button Click="OnCountClick">Policz</Button>
+                    <TextBlock Name="CountText" VerticalAlignment="Center" FontWeight="SemiBold" />
+                </StackPanel>
+            </Grid>
         </Border>
 
         <!-- Główny kontener ekranów -->

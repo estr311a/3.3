@@ -1,3 +1,4 @@
+using System.IO;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -76,5 +77,11 @@ public partial class MainWindow : Window
     private void OnNavAddClick(object? sender, RoutedEventArgs e)
     {
         ShowAddView();
+    }
+
+    private void OnCountClick(object? sender, RoutedEventArgs e)
+    {
+        var lines = File.ReadAllLines("dane/pozycje.txt");
+        CountText.Text = $"Pozycji w pliku: {lines.Length}";
     }
 }
